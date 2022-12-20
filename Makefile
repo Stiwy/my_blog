@@ -23,6 +23,7 @@ cache-clear: ## Clear cache
 
 ## —— ✅ Test ——
 .PHONY: tests
+
 tests: ## Run all tests
 	$(MAKE) database-init-test
 	$(PHP) bin/phpunit --testdox tests/Unit/
@@ -36,11 +37,11 @@ database-init-test: ## Init database for test
 	$(SYMFONY_CONSOLE) d:f:l --no-interaction --env=test
 
 unit-test: ## Run unit tests
-	$(MAKE) database-init-test
+	#$(MAKE) database-init-test
 	$(PHP) bin/phpunit --testdox tests/Unit/
 
 functional-test: ## Run functional tests
-	$(MAKE) database-init-test
+	#$(MAKE) database-init-test
 	$(PHP) bin/phpunit --testdox tests/Functional/
 
 # PANTHER_NO_HEADLESS=1 ./bin/phpunit --filter LikeTest --debug to debug with Chrome
